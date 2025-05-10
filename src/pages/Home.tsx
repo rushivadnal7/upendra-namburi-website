@@ -11,6 +11,13 @@ import { useLayoutEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ScrollSmoother } from 'gsap/ScrollSmoother'
+import MiniSeries from '@/sections/MiniSeries'
+import Footer from '@/sections/Footer'
+import UpcomingBooks from '@/sections/UpcomingBooks'
+import Media from '@/sections/Media'
+import Articles from '@/sections/Articles'
+import { articleData, books, mediaItems, presentationItems, upcomingBooks } from '@/utills/section-data'
+import Presentations from '@/sections/Presentations'
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
 
@@ -30,6 +37,7 @@ const Home = () => {
     const upcomingRef = useRef<HTMLDivElement>(null)
     const seriesRef = useRef<HTMLDivElement>(null)
     const mediaRef = useRef<HTMLDivElement>(null)
+    const presentationRef = useRef<HTMLDivElement>(null)
     const galleryRef = useRef<HTMLDivElement>(null)
     const articlesRef = useRef<HTMLDivElement>(null)
     const horizontalRef = useRef<HTMLDivElement>(null)
@@ -494,172 +502,9 @@ const Home = () => {
             })
         }
     }, [])
-
-
-
-    const books = [
-        {
-            id: 1,
-            title: "31",
-            subtitle: "A Ruthless Corporate Thriller",
-            cover: "/Books/book-31.png",
-            summary:
-                `
-              <p>
-  <strong class='text-xl text-neutral-500 font-semibold'>For Ravi Shastry, March is make-or-break.</strong>
-</p>
-<br/>
-
-<p>
-  As a sharp, no-nonsense executive at Imperial Bank, he’s spent years clawing his way to the top. Now, with just 31 days left in the financial year, a promotion is within reach. His boss respects him. His team fears him. His wife believes in him. He’s built his empire one deal at a time, and nothing can shake it.
-</p>
-<br/>
-
-<p class='font-semibold'>Until the first cracks appear.</p>
-<br/>
-
-<p>
-  Within days, the bank’s Brazil operations implode. The US arm is in freefall. Global restructuring is coming, and India is next on the chopping block—with Ravi and his team in the firing line.
-</p>
-<br/>
-
-<p>
-  Then the knives come out. A former lover-turned-rival wants him crushed. A cunning HR manager is playing puppet master. Internal Audit is circling like a shark. Even his personal life is unraveling.
-</p>
-<br/>
-
-<p>
-  By the time Ravi realizes he’s in a war for his survival, it may already be too late. Enemies are closing in. Loyalties are shifting. And the real threat? It’s been right in front of him all along.
-</p>
-<br/>
-
-<p class='italic font-medium'>
-  Will Ravi still have a job when March ends—or will this be his final quarter?
-</p>
-<br/>
-
-<p>
-  <strong>31</strong> is a relentless corporate thriller that drags you into a world where power is fleeting, betrayal is currency, and survival is never guaranteed. Tick-tock, Ravi. Your time is running out.
-</p>
-
-                `,
-            reviews: [
-                {
-                    text: "A relentless corporate thriller that drags you into a world where power is fleeting, betrayal is currency, and survival is never guaranteed.",
-                    author: "Business Standard",
-                },
-                { text: "Tick-tock, Ravi. Your time is running out.", author: "The Hindu" },
-            ],
-        },
-        {
-            id: 2,
-            title: "60 Minutes",
-            subtitle: "A Relentless Corporate Thriller",
-            cover: "/Books/book-60min.png",
-            summary:
-                `
-<p>
-  <strong class='text-xl text-neutral-500 font-semibold'>Three people. One hour. Everything to lose.</strong>
-</p>
-<br/>
-
-<p>
-  Agastya, a ruthless Chief Marketing Officer at one of the biggest FMCG companies, is about to launch the most important product of his career. He’s worked for this moment his entire life. Then, in a matter of minutes, everything starts to collapse. The deal. His job. Even his marriage. He has 60 minutes to stop the fallout—or lose everything.
-</p>
-<br/>
-
-<p>
-  Maithili, brilliant and beautiful, has always played fair in love. But when Agastya pushes her to the edge, she’s done being the victim. Now it’s her turn to strike back. 60 minutes is all she needs to turn his world upside down.
-</p>
-<br/>
-
-<p>
-  Sailesh, a quiet academic misfit in a world of boardroom sharks, has never been one for corporate warfare. But when someone crosses the line, he’s left with no choice. 60 minutes. One chance. Total annihilation.
-</p>
-<br/>
-
-<p>
-  Careers are on the line. Marriages are crumbling. Reputations are in freefall. As the clock ticks down, who will outmaneuver, who will collapse, and who will walk away victorious?
-</p>
-<br/>
-
-<p>
-  <strong class='text-lg font-semibold'>One hour. Three battles. No second chances.</strong>
-</p>
-<br/>
-
-<p>
-  <strong>60 Minutes</strong> is a high-stakes, pulse-pounding thriller where every second counts—and not everyone will make it to the finish line. Tick-tock.
-</p>
-
-                `,
-            reviews: [
-                {
-                    text: "60 Minutes is a high-stakes, pulse-pounding thriller where every second counts—and not everyone will make it to the finish line.",
-                    author: "Times of India",
-                },
-                { text: "One hour. Three battles. No second chances.", author: "Economic Times" },
-            ],
-        },
-        {
-            id: 3,
-            title: "8 Hours",
-            subtitle: "A Ruthless Corporate Thriller",
-            cover: "/Books/book-8hours.png",
-            summary:
-                `
-               <p>
-  <strong class='text-2xl text-neutral-700 font-bold'>8 Hours – A Ruthless Corporate Thriller</strong>
-</p>
-<br/>
-
-<p>
-  <strong class='text-xl text-neutral-500 font-semibold'>One night. One empire. One woman against them all.</strong>
-</p>
-<br/>
-
-<p>
-  Aratrika Reddy, the bold and brilliant CEO of ARYA Holdings Ltd., has just 8 hours to stop her company from crumbling into bankruptcy and betrayal. Her father’s once-mighty multi-billion-dollar empire—spanning hotels, steel, and liquor—is now the ultimate prize in a ruthless corporate war.
-</p>
-<br/>
-
-<p class='font-semibold'>The vultures are circling.</p>
-<br/>
-
-<p>
-  Her estranged husband, Siddhartha, armed with inside knowledge, is playing his trump card. The Rathores, her family’s oldest rivals, are hungry for payback. Her uncle Jagannath, the ultimate manipulator, is working both sides. Her father, Madhusudhan Reddy, a liquor baron with a thirst for power, is pulling strings from the shadows. And overseeing it all? Peter, her old flame—watching, waiting, calculating.
-</p>
-<br/>
-
-<p>
-  Lawyers. Politicians. Bankers. Power brokers. Family traitors.
-</p>
-<br/>
-
-<p>
-  As the clock ticks down, Aratrika must navigate a web of deception and ambition, outplay those who want to see her fall, and prove that she is the rightful heir to the empire.
-</p>
-<br/>
-
-<p class='italic font-medium'>It’s a war. It’s personal. And she’s got just 8 hours to win it.</p>
-<br/>
-
-<p>
-  <strong class='font-semibold'>8 Hours</strong> is a high-stakes, high-tension thriller where money, power, and revenge collide in a battle for survival. Tick-tock, Aratrika. The night won’t wait.
-</p>
-
-                `,
-            reviews: [
-                {
-                    text: "8 Hours is a high-stakes, high-tension thriller where money, power, and revenge collide in a battle for survival.",
-                    author: "Mint",
-                },
-                { text: "Tick-tock, Aratrika. The night won't wait.", author: "Financial Express" },
-            ],
-        }
-    ]
-
     const toggleMenu = () => setMenuOpen(!menuOpen)
+
+
 
     return (
         <>
@@ -730,15 +575,22 @@ const Home = () => {
 
                         {/* HERO SECTION */}
                         <HeroSection />
+
                         {/* About Section - Pinned */}
                         <AboutSection />
 
-
                         {/* Books Section - Enhanced with Emphasis */}
                         <section ref={booksRef} className="py-24 ">
-                            <div className="container mx-auto px-6 mb-12">
+                            <div className="container mx-auto px-6 mb-0">
                                 <h2 className="section-heading text-4xl md:text-6xl font-bold mb-16 inline-block bg-gradient-to-r from-black to-black bg-[length:0%_2px] bg-no-repeat bg-bottom pb-2">
                                     Published Books
+                                    <motion.span
+                                        className="absolute bottom-0 left-0 w-full h-[3px] bg-black"
+                                        initial={{ width: 0 }}
+                                        whileInView={{ width: "100%" }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 1.2, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+                                    />
                                 </h2>
 
                                 <div className="mb-12 max-w-3xl mx-auto">
@@ -762,6 +614,18 @@ const Home = () => {
                                 </div>
                             </div>
                         </section>
+
+                        <UpcomingBooks upcomingRef={upcomingRef} upcomingBooks={upcomingBooks} />
+
+                        <MiniSeries seriesRef={seriesRef} />
+
+                        <Media mediaItems={mediaItems} mediaRef={mediaRef} />
+
+                        <Articles articlesRef={articlesRef} articleData={articleData} />
+
+                        <Presentations presentationItems={presentationItems} presentationRef={presentationRef} />
+
+                        <Footer />
                     </div>
                 </div>
             </div>
