@@ -4,7 +4,7 @@ import React from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { Button } from "@/components/ui/button"
 
-export default function HeroSection() {
+export default function HeroSection({ booksRef, mediaRef }: any) {
     const targetRef = React.useRef<HTMLElement>(null)
     const { scrollYProgress } = useScroll({
         target: targetRef,
@@ -18,7 +18,7 @@ export default function HeroSection() {
         <div className="bg-[var(--bg-color)] w-full">
             <section
                 ref={targetRef}
-                className="mt-[5rem] max-w-7xl h-screen mx-auto flex justify-center items-center relative overflow-hidden"
+                className="mt-[rem] max-w-7xl h-screen mx-auto flex justify-center items-center relative overflow-hidden"
             >
                 {/* Background decorative elements */}
                 <motion.div
@@ -85,11 +85,16 @@ export default function HeroSection() {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.9, duration: 0.6 }}
                     >
-                        <Button className="bg-black hover:bg-gray-800 text-white text-lg py-6 px-8 rounded-full">
+                        <Button onClick={() => {
+                            booksRef?.current?.scrollIntoView({ behavior: "smooth" })
+                        }} className="bg-black hover:bg-gray-800 text-white text-lg py-6 px-8 rounded-full">
                             Explore Books
                         </Button>
                         <Button
                             variant="outline"
+                            onClick={() => {
+                                mediaRef?.current?.scrollIntoView({ behavior: "smooth" })
+                            }}
                             className="border-black hover:bg-black/10 text-black text-lg py-6 px-8 rounded-full"
                         >
                             Watch Interviews

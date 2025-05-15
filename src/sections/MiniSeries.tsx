@@ -1,14 +1,29 @@
 import { Button } from '@/components/ui/button'
+import SectionTitle from '@/custom/SectionTitle'
+import { motion } from 'framer-motion'
 import { ExternalLink } from 'lucide-react'
 import React from 'react'
 import { Link } from 'react-router-dom'
+
 
 const MiniSeries = ({ seriesRef }: any) => {
     return (
         <>
             {/* Mini Series Section - Enhanced as Major Achievement */}
             <section ref={seriesRef} className="py-24  text-black max-w-7xl mx-auto">
-                <div className="container mx-auto px-6">
+                <div className="container mx-auto relative px-6">
+                    <SectionTitle text='Mini Series'/>
+
+                    {/* <h2 className="media-heading relative section-heading text-4xl md:text-5xl font-bold mb-16 inline-block bg-gradient-to-r from-black to-black bg-[length:0%_2px] bg-no-repeat bg-bottom pb-2">
+                        Mini Series
+                        <motion.span
+                            className="absolute bottom-0 left-0 w-full h-[3px] bg-black"
+                            initial={{ width: 0 }}
+                            whileInView={{ width: "100%" }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1.2, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+                        />
+                    </h2> */}
                     <div className="flex justify-between mx-auto gap-12 items-center">
                         <div className="series-content w-[50%] space-y-6 order-2 md:order-1">
                             <div className="series-badge flex items-center mx-auto  gap-2 w-max bg-white text-black text-sm font-bold px-4 py-2 rounded-full mb-4">

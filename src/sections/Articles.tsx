@@ -1,7 +1,10 @@
 import { Button } from '@/components/ui/button'
+import SectionTitle from '@/custom/SectionTitle'
+import { motion } from 'framer-motion'
 import { ExternalLink } from 'lucide-react'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+
 
 const Articles = ({ articlesRef, articleData }: any) => {
   const [showAll, setShowAll] = useState(false)
@@ -9,12 +12,11 @@ const Articles = ({ articlesRef, articleData }: any) => {
 
   return (
     <section ref={articlesRef} className="py-24 max-w-7xl mx-auto">
-      <div className="container mx-auto px-6">
-        <h2 className="section-heading text-4xl md:text-5xl font-bold mb-16 inline-block bg-gradient-to-r from-black to-black bg-[length:0%_2px] bg-no-repeat bg-bottom pb-2">
-          Published Articles
-        </h2>
+      <div className="container relative mx-auto px-6">
+        <SectionTitle text='Articles' />
 
-        <div className="mt-16 grid md:grid-cols-2 gap-8">
+
+        <div className=" grid md:grid-cols-2 gap-8">
           {visibleArticles.map((article: any) => (
             <div
               key={article.id}

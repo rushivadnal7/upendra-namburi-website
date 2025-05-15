@@ -3,14 +3,15 @@ import { FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <div className="max-w-[90rem] text-black h-[375px] w-full mx-auto">
-            <div className="w-full py-8 mx-auto">
-                <h2 className="uppercase text-lg">follow upendra namburi-</h2>
-                <span className="uppercase text-2xl">connect online</span>
+        <div className="max-w-[90rem] text-black h-[375px] w-full mx-auto ">
+            <div className="h-px w-10/12 mx-auto bg-black" />
+            <div className="w-10/12 flex justify-center flex-col items-center py-8 mx-auto">
+                <h2 className="uppercase font-semibold text-lg">follow upendra namburi-</h2>
+                <span className="uppercase font-semibold text-2xl">connect online</span>
                 <div className="flex items-center justify-center gap-4 py-8 w-full">
-                    <Linkedin className="text-white bg-[#0077B5] rounded-sm p-[5px]" size={32}/>
-                    <Facebook className="text-white bg-[#1877F2] rounded-sm p-[5px]" size={32}/>
-                    <FaWhatsapp className="bg-[#25D366] text-white rounded-sm p-[5px]" size={32}/>
+                    <Linkedin className="text-white bg-[#0077B5] rounded-sm p-[5px]" size={32} />
+                    <Facebook className="text-white bg-[#1877F2] rounded-sm p-[5px]" size={32} />
+                    <FaWhatsapp className="bg-[#25D366] text-white rounded-sm p-[5px]" size={32} />
                 </div>
             </div>
             <div className="h-px w-10/12 mx-auto bg-black" />

@@ -146,10 +146,10 @@ export default function BookShowcase({
   }, [book.reviews, enhanced])
 
   return (
-    <div ref={bookRef} className="grid md:grid-cols-2 px-8   h-screen items-center justify-center gap-8 md:gap-12">
+    <div ref={bookRef} className="flex w-7xl px-8   h-screen items-center justify-start gap-8 md:gap-12">
       {reversed ? (
         <>
-          <div ref={contentRef} className="space-y-6">
+          <div ref={contentRef} className="space-y-6 w-1/2">
             <h3 className="text-3xl md:text-5xl font-bold">{book.title}</h3>
             <h4 className="text-xl text-gray-500">{book.subtitle}</h4>
             <p className="text-lg text-gray-700">{book.summary}</p>
@@ -182,7 +182,7 @@ export default function BookShowcase({
 
           <div
             ref={coverRef}
-            className={`relative h-[600px]  w-full max-w-[400px] mx-auto ${enhanced ? "shadow-2xl shadow-black/20" : "shadow-xl"} transform-style-3d`}
+            className={`relative h-[600px]  w-1/2 max-w-[400px] mx-auto ${enhanced ? "shadow-2xl shadow-black/20" : "shadow-xl"} transform-style-3d`}
           >
             {enhanced && (
               <div className="absolute -top-4 -left-4 bg-black text-white text-sm px-3 py-1 rounded-full z-10">
@@ -225,28 +225,10 @@ export default function BookShowcase({
               />
             </div>
 
-            <div ref={contentRef} className="space-y-4 h-[500px]">
+            <div ref={contentRef} className="space-y-4 w-1/2 h-[500px]">
               <h3 className="text-3xl md:text-4xl font-bold">{book.title}</h3>
               <h4 className="text-2xl font-bold text-neutral-600">{book.subtitle}</h4>
               <div dangerouslySetInnerHTML={{ __html: book.summary }} className="text-lg text-left  text-gray-700 line-clamp-[12] " />
-
-              {/* {book.reviews && (
-              <div className="space-y-2 mt-1">
-                <h5 className="text-lg font-semibold">Reviews</h5>
-                {book.reviews.map((review, index) => (
-                  <div
-                    key={index}
-                    className={` book-review ${enhanced ? "transform transition-all duration-300 hover:scale-105" : ""} ${lightTheme ? "bg-gray-100" : "bg-zinc-900"} p-6 rounded-lg ${enhanced ? "shadow-lg" : ""}`}
-                  >
-                    <p className={`italic ${lightTheme ? "text-gray-700" : "text-gray-300"} mb-2 text-sm`}>
-                      "{review.text}"
-                    </p>
-                    <p className="text-sm text-gray-500 font-medium">— {review.author}</p>
-                  </div>
-                ))}
-              </div>
-            )} */}
-
               <div className="p">
 
                 <DialogTrigger>
@@ -260,10 +242,10 @@ export default function BookShowcase({
 
               </div>
             </div>
-            <DialogContent className="bg-white w-[800px]  ">
+            <DialogContent className="bg-white w-max   ">
               <DialogHeader>
                 <DialogDescription
-                  className="text-lg w-[800px] "
+                  className="text-lg w-[800px] static"
                   dangerouslySetInnerHTML={{ __html: book.summary }}
                 />
               </DialogHeader>

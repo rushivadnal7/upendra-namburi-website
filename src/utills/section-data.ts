@@ -244,7 +244,8 @@ export const mediaItems = [
     id: 1,
     type: "video",
     title: "Leadership in Crisis",
-    url: "https://www.youtube.com/watch?v=d6tOsCTWIic&pp=ygUPdXBlbmRyYSBuYW1idXJp",
+    url: "https://www.youtube.com/embed/d6tOsCTWIic",
+    ytLink: "https://www.youtube.com/watch?v=d6tOsCTWIic",
     thumbnail: "/interviews/dummy-interview.png",
     description:
       "Discussing leadership strategies during uncertain times and market volatility.",
@@ -253,7 +254,8 @@ export const mediaItems = [
     id: 2,
     type: "video",
     title: "The Future of Business",
-    url: "https://www.youtube.com/watch?v=-2FlYiY7DkQ&t=2075s&pp=ygUPdXBlbmRyYSBuYW1idXJp",
+    url: "https://www.youtube.com/embed/-2FlYiY7DkQ?start=2075",
+    ytLink: "https://www.youtube.com/watch?v=-2FlYiY7DkQ&t=2075s",
     thumbnail: "/interviews/dummy-interview.png",
     description:
       "Exploring emerging trends and technologies reshaping the business landscape.",
@@ -262,7 +264,8 @@ export const mediaItems = [
     id: 3,
     type: "video",
     title: "Corporate Strategy Panel",
-    url: "https://www.youtube.com/watch?v=m2zc65N3vTI&t=371s&pp=ygUPdXBlbmRyYSBuYW1idXJp",
+    url: "https://www.youtube.com/embed/m2zc65N3vTI?start=371",
+    ytLink: "https://www.youtube.com/watch?v=m2zc65N3vTI&t=371s",
     thumbnail: "/interviews/dummy-interview.png",
     description:
       "Panel discussion on effective corporate strategies in the digital era.",
@@ -271,7 +274,8 @@ export const mediaItems = [
     id: 4,
     type: "video",
     title: "Author Interview",
-    url: "https://www.youtube.com/watch?v=ONR18PSQ0s8&t=1161s&pp=ygUPdXBlbmRyYSBuYW1idXJp",
+    url: "https://www.youtube.com/embed/ONR18PSQ0s8?start=1161",
+    ytLink: "https://www.youtube.com/watch?v=ONR18PSQ0s8&t=1161s",
     thumbnail: "/interviews/dummy-interview.png",
     description:
       "In-depth interview about the writing process and inspiration behind the books.",
@@ -280,7 +284,8 @@ export const mediaItems = [
     id: 5,
     type: "video",
     title: "Banking Frontiers Conference",
-    url: "https://www.youtube.com/watch?v=SQkEFDuRVV8&t=273s",
+    url: "https://www.youtube.com/embed/SQkEFDuRVV8?start=273",
+    ytLink: "https://www.youtube.com/watch?v=SQkEFDuRVV8&t=273s",
     thumbnail: "/interviews/dummy-interview.png",
     description:
       "Keynote speech on innovation and disruption in the banking sector.",
@@ -289,7 +294,8 @@ export const mediaItems = [
     id: 6,
     type: "video",
     title: "Marketing Innovation Talk",
-    url: "https://www.youtube.com/watch?v=JNEGiUn05HI&pp=ygUPdXBlbmRyYSBuYW1idXJp",
+    url: "https://www.youtube.com/embed/JNEGiUn05HI",
+    ytLink: "https://www.youtube.com/watch?v=JNEGiUn05HI",
     thumbnail: "/interviews/dummy-interview.png",
     description:
       "Discussing breakthrough marketing strategies for the digital age.",
@@ -298,12 +304,15 @@ export const mediaItems = [
     id: 7,
     type: "video",
     title: "AlumSpeaks on the go with Ashutosh Khanna, Korn Ferry",
-    url: "https://www.youtube.com/watch?v=PUBiqrXv8mE&t=2s&pp=ygUPdXBlbmRyYSBuYW1idXJp",
+    url: "https://www.youtube.com/embed/PUBiqrXv8mE?start=2",
+    ytLink: "https://www.youtube.com/watch?v=PUBiqrXv8mE&t=2s",
     thumbnail: "/interviews/dummy-interview.png",
     description:
       "Discussing breakthrough marketing strategies for the digital age.",
   },
 ];
+
+
 
 export const presentationItems = [
   {

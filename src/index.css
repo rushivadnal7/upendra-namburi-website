@@ -45,6 +45,11 @@
 body {
   background: #f8f2ee;
   font-family: "Geist", sans-serif;
+  overflow-x: hidden;
+}
+
+#root{
+  padding: 0;
 }
 
 /* :root {

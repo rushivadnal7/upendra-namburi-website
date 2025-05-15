@@ -2,9 +2,9 @@
 
 import { useRef, useEffect, useState } from "react"
 import { motion, useInView, useScroll, useTransform, stagger, useAnimate } from "framer-motion"
+import SectionTitle from "@/custom/SectionTitle"
 
-export default function AboutSection() {
-    const aboutRef = useRef<HTMLElement>(null)
+export default function AboutSection({ aboutRef }: any) {
     const contentRef = useRef<HTMLDivElement>(null)
     const imageRef = useRef<HTMLDivElement>(null)
     const isInView = useInView(aboutRef, { once: false, amount: 0.2 })
@@ -17,6 +17,7 @@ export default function AboutSection() {
         offset: ["start end", "end start"],
     })
 
+
     const toggleReadMore = () => setIsExpanded(!isExpanded)
 
     const imageY = useTransform(scrollYProgress, [0, 1], [50, -50])
@@ -27,6 +28,13 @@ export default function AboutSection() {
             animate("p", { opacity: 1, y: 0 }, { duration: 0.8, delay: stagger(0.15), ease: [0.25, 0.1, 0.25, 1] })
         }
     }, [isInView, animate])
+
+    useEffect(() => {
+        if (isInView && isExpanded) {
+            setIsExpanded(false);
+        }
+    }, [isInView]);
+
 
     return (
         <div className="bg-white w-full">
@@ -46,26 +54,9 @@ export default function AboutSection() {
                 />
 
                 <div className="container mx-auto px-6 relative z-10">
-                    <motion.h2
-                        className="section-heading text-5xl md:text-6xl font-bold mb-8 inline-block"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-                    >
-                        <span className="relative">
-                            About Upendra
-                            <motion.span
-                                className="absolute bottom-0 left-0 w-full h-[3px] bg-black"
-                                initial={{ width: 0 }}
-                                whileInView={{ width: "100%" }}
-                                viewport={{ once: false }}
-                                transition={{ duration: 1.2, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-                            />
-                        </span>
-                    </motion.h2>
+                    <SectionTitle text={'About Upendra'} />
 
-                    <div className="flex justify-between w-full mx-auto items-center gap-16 mt-16">
+                    <div className="flex justify-between w-full mx-auto items-center gap-16 ">
                         <motion.div ref={scope} className="about-content space-y-8 w-[50%]" style={{ opacity: contentOpacity }}>
                             {[
                                 " <strong>Upendra Namburi</strong> doesn’t pen corporate thrillers—he detonates them. His books are a headrush of ambition, power, and high-stakes mayhem that draw the reader into the cutthroat world of business where deals are made in whispered tones, betrayals happen in real-time, and fortunes are lost in the blink of an eye. If you think business is planning and strategy, think again. In Upendra’s world, it’s a warzone—where only the sharpest, fastest, and most ruthless emerge alive.",

@@ -18,6 +18,9 @@ import Media from '@/sections/Media'
 import Articles from '@/sections/Articles'
 import { articleData, books, mediaItems, presentationItems, upcomingBooks } from '@/utills/section-data'
 import Presentations from '@/sections/Presentations'
+import Blogs from '@/sections/Blogs'
+import Navbar from '@/sections/Navbar'
+import SectionTitle from '@/custom/SectionTitle'
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
 
@@ -32,12 +35,13 @@ const Home = () => {
     const navbarRef = useRef<HTMLElement>(null)
     const heroRef = useRef<HTMLDivElement>(null)
     const aboutRef = useRef<HTMLDivElement>(null)
+    const mediaRef = useRef<HTMLDivElement>(null)
     const booksRef = useRef<HTMLDivElement>(null)
     const booksSectionRef = useRef<HTMLDivElement>(null)
     const upcomingRef = useRef<HTMLDivElement>(null)
     const seriesRef = useRef<HTMLDivElement>(null)
-    const mediaRef = useRef<HTMLDivElement>(null)
     const presentationRef = useRef<HTMLDivElement>(null)
+    const blogRef = useRef<HTMLDivElement>(null)
     const galleryRef = useRef<HTMLDivElement>(null)
     const articlesRef = useRef<HTMLDivElement>(null)
     const horizontalRef = useRef<HTMLDivElement>(null)
@@ -45,19 +49,6 @@ const Home = () => {
     const [navbarVisible, setNavbarVisible] = useState(true)
     const [smootherInstance, setSmootherInstance] = useState<any>(null)
 
-    const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
-        setMenuOpen(false)
-        if (ref.current && smootherInstance) {
-            // Use ScrollSmoother for smooth scrolling
-            smootherInstance.scrollTo(ref.current, true, "center center")
-        } else if (ref.current) {
-            // Fallback to native scrolling
-            window.scrollTo({
-                top: ref.current.offsetTop - 100,
-                behavior: "smooth",
-            })
-        }
-    }
 
     useEffect(() => {
         // Initialize smooth scrolling with optimized settings
@@ -508,127 +499,64 @@ const Home = () => {
 
     return (
         <>
-            <div ref={mainRef} className="relative text-black">
+            <div ref={mainRef} className="relative text-black  w- ">
                 <CustomCursor />
                 {/* Smooth scrolling wrapper */}
-                <div ref={smootherRef} className="smooth-wrapper">
-                    <div ref={contentRef} className="smooth-content">
-
-                        {/* Floating Capsule Navbar */}
-                        <header
-                            ref={navbarRef}
-                            className={`fixed -top-10 left-1/2 transform -translate-x-1/2 w-[95%] max-w-5xl z-50 px-6 py-3 flex justify-between items-center bg-white/80 backdrop-blur-md rounded-full border border-gray-200 shadow-lg transition-all duration-500 ${navbarVisible ? "translate-y-0 opacity-100" : "-translate-y-20 opacity-0"}`}
-                        >
-                            <div className="text-xl font-bold tracking-tighter">UN</div>
-
-                            <button
-                                onClick={toggleMenu}
-                                className="lg:hidden text-black z-50 w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
-                            >
-                                {menuOpen ? <X size={20} /> : <Menu size={20} />}
-                            </button>
-
-                            <nav
-                                className={`fixed lg:relative top-0 right-0 h-screen lg:h-auto w-full lg:w-auto bg-white/95 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none transform ${menuOpen ? "translate-x-0" : "translate-x-full lg:translate-x-0"
-                                    } transition-transform duration-500 ease-in-out lg:transition-none flex flex-col lg:flex-row items-center justify-center lg:justify-end gap-8 lg:gap-6 text-lg z-40`}
-                            >
-                                <button
-                                    onClick={() => scrollToSection(aboutRef)}
-                                    className="nav-link hover:text-gray-500 transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-black hover:after:w-full after:transition-all"
-                                >
-                                    About
-                                </button>
-                                <button
-                                    onClick={() => scrollToSection(booksRef)}
-                                    className="nav-link hover:text-gray-500 transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-black hover:after:w-full after:transition-all"
-                                >
-                                    Books
-                                </button>
-                                <button
-                                    onClick={() => scrollToSection(seriesRef)}
-                                    className="nav-link hover:text-gray-500 transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-black hover:after:w-full after:transition-all"
-                                >
-                                    Mini Series
-                                </button>
-                                <button
-                                    onClick={() => scrollToSection(mediaRef)}
-                                    className="nav-link hover:text-gray-500 transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-black hover:after:w-full after:transition-all"
-                                >
-                                    Media
-                                </button>
-                                <button
-                                    onClick={() => scrollToSection(galleryRef)}
-                                    className="nav-link hover:text-gray-500 transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-black hover:after:w-full after:transition-all"
-                                >
-                                    Gallery
-                                </button>
-                                <button
-                                    onClick={() => scrollToSection(articlesRef)}
-                                    className="nav-link hover:text-gray-500 transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-black hover:after:w-full after:transition-all"
-                                >
-                                    Articles
-                                </button>
-                                <Button className="bg-black hover:bg-gray-800 text-white rounded-full px-6">Contact</Button>
-                            </nav>
-                        </header>
+                {/* <div ref={smootherRef} className="smooth-wrapper">
+                    <div ref={contentRef} className="smooth-content"> */}
 
 
-                        {/* HERO SECTION */}
-                        <HeroSection />
+                <Navbar mediaRef={mediaRef} articlesRef={articlesRef} aboutRef={aboutRef} booksRef={booksRef} miniSeriesRef={seriesRef} presentationRef={presentationRef} blogRef={blogRef} upcomingBookRef={upcomingRef} />
 
-                        {/* About Section - Pinned */}
-                        <AboutSection />
+                {/* HERO SECTION */}
+                <HeroSection booksRef={booksRef} mediaRef={mediaRef} />
 
-                        {/* Books Section - Enhanced with Emphasis */}
-                        <section ref={booksRef} className="py-24 ">
-                            <div className="container mx-auto px-6 mb-0">
-                                <h2 className="section-heading text-4xl md:text-6xl font-bold mb-16 inline-block bg-gradient-to-r from-black to-black bg-[length:0%_2px] bg-no-repeat bg-bottom pb-2">
-                                    Published Books
-                                    <motion.span
-                                        className="absolute bottom-0 left-0 w-full h-[3px] bg-black"
-                                        initial={{ width: 0 }}
-                                        whileInView={{ width: "100%" }}
-                                        viewport={{ once: true }}
-                                        transition={{ duration: 1.2, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-                                    />
-                                </h2>
+                {/* About Section - Pinned */}
+                <AboutSection aboutRef={aboutRef} />
 
-                                <div className="mb-12 max-w-3xl mx-auto">
-                                    <p className="text-xl text-gray-700 italic">
-                                        "Upendra Namburi's corporate thrillers are masterclasses in tension, ambition, and the cutthroat world
-                                        of high-stakes business."
-                                    </p>
-                                    <p className="text-right text-gray-500 mt-2">— Financial Times</p>
-                                </div>
-                            </div>
+                {/* Books Section - Enhanced with Emphasis */}
+                <section ref={booksRef} id='books' className="py-32 max-w-7xl mx-auto ">
+                    <div className="container relative  mx-auto px-6 mb-0">
+                        <SectionTitle text={'Published Books'} />
 
-                            <div ref={booksSectionRef} className="relative  ">
-                                <div ref={horizontalRef} className="overflow-hidden flex items-center h-full">
-                                    <div className="flex items-center  books-container" style={{ width: `${books.length * 100}vw` }}>
-                                        {books.map((book) => (
-                                            <div key={book.id} className="book-item w-screen h-screen px-6 md:px-12 lg:px-24 flex items-center">
-                                                <BookShowcase book={book} lightTheme={true} enhanced={true} />
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                        <UpcomingBooks upcomingRef={upcomingRef} upcomingBooks={upcomingBooks} />
-
-                        <MiniSeries seriesRef={seriesRef} />
-
-                        <Media mediaItems={mediaItems} mediaRef={mediaRef} />
-
-                        <Articles articlesRef={articlesRef} articleData={articleData} />
-
-                        <Presentations presentationItems={presentationItems} presentationRef={presentationRef} />
-
-                        <Footer />
+                        <div className="mb-12 max-w-3xl mx-auto">
+                            <p className="text-xl text-gray-700 italic">
+                                "Upendra Namburi's corporate thrillers are masterclasses in tension, ambition, and the cutthroat world
+                                of high-stakes business."
+                            </p>
+                            <p className="text-right text-gray-500 mt-2">— Financial Times</p>
+                        </div>
                     </div>
-                </div>
+
+                    <div ref={booksSectionRef} className="relative  ">
+                        <div ref={horizontalRef} className="overflow-hidden flex items-center h-full">
+                            <div className="flex items-center  books-container" style={{ width: `${books.length * 100}vw` }}>
+                                {books.map((book) => (
+                                    <div key={book.id} className="book-item  w-screen h-screen px-6 md:px-12 lg:px-0 flex items-center">
+                                        <BookShowcase book={book} lightTheme={true} enhanced={true} />
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <UpcomingBooks upcomingRef={upcomingRef} upcomingBooks={upcomingBooks} />
+
+                <MiniSeries seriesRef={seriesRef} />
+
+                <Media mediaItems={mediaItems} mediaRef={mediaRef} />
+
+                <Articles articlesRef={articlesRef} articleData={articleData} />
+
+                <Presentations presentationItems={presentationItems} presentationRef={presentationRef} />
+
+
+                <Blogs blogRef={blogRef} />
+                <Footer />
             </div>
+            {/* </div>
+            </div> */}
         </>
     )
 }

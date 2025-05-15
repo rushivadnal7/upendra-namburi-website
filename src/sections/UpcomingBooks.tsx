@@ -1,18 +1,19 @@
 import { Button } from '@/components/ui/button'
+import SectionTitle from '@/custom/SectionTitle'
+import { motion } from 'framer-motion'
 import React from 'react'
+
 
 const UpcomingBooks = ({ upcomingRef, upcomingBooks }: any) => {
     return (
         <>
             {/* Upcoming Books Section */}
-            <div className='bg-white w-full'>
+            <div ref={upcomingRef} className='bg-white w-full'>
                 <section className="py-24 max-w-7xl mx-auto text-black">
-                    <div className="container mx-auto px-6">
-                        <h2 className="section-heading text-4xl md:text-5xl font-bold mb-16 inline-block bg-gradient-to-r from-black to-black bg-[length:0%_2px] bg-no-repeat bg-bottom pb-2">
-                            Upcoming Books
-                        </h2>
+                    <div className="container mx-auto relative px-6">
+                        <SectionTitle text={'Upcoming Books'} />
 
-                        <div className="mt-16 mb-10 flex justify-between items-center gap-12">
+                        <div className=" mb-10 flex justify-between items-center gap-12">
                             {upcomingBooks.map((book: any, index: any) => (
                                 <div
                                     key={book.id}

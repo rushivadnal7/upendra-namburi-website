@@ -1,7 +1,10 @@
 import { Button } from '@/components/ui/button'
+import SectionTitle from '@/custom/SectionTitle'
+import { motion } from 'framer-motion'
 import { ExternalLink } from 'lucide-react'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+
 
 const Presentations = ({ presentationItems, presentationRef }: any) => {
     const [showAll, setShowAll] = useState(false);
@@ -10,14 +13,13 @@ const Presentations = ({ presentationItems, presentationRef }: any) => {
     return (
         <>
             {/* Media Section - More Interactive */}
-            <div className='w-full bg-white'>
+            <div className='w-full bg-white min-h-screen flex justify-center items-center'>
                 <section ref={presentationRef} className="py-24 max-w-7xl mx-auto">
-                    <div className="container mx-auto px-6">
-                        <h2 className="media-heading section-heading text-4xl md:text-5xl font-bold mb-16 inline-block bg-gradient-to-r from-black to-black bg-[length:0%_2px] bg-no-repeat bg-bottom pb-2">
-                            Presentations
-                        </h2>
+                    <div className="container mx-auto relative px-6">
+                        <SectionTitle text='Presentations' />
 
-                        <div className="mt-16 grid md:grid-cols-3 gap-6 media-container">
+
+                        <div className=" grid md:grid-cols-3 gap-6 media-container">
                             {visibleItems.map((item: any, index: number) => (
                                 <div
                                     key={item.id}
