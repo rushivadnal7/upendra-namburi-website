@@ -21,6 +21,8 @@ import Presentations from '@/sections/Presentations'
 import Blogs from '@/sections/Blogs'
 import Navbar from '@/sections/Navbar'
 import SectionTitle from '@/custom/SectionTitle'
+import Awards from '@/sections/Awards'
+import EnhancedAwards from '@/sections/EnhancedAwards'
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
 
@@ -42,6 +44,7 @@ const Home = () => {
     const seriesRef = useRef<HTMLDivElement>(null)
     const presentationRef = useRef<HTMLDivElement>(null)
     const blogRef = useRef<HTMLDivElement>(null)
+    const awardRef = useRef<HTMLDivElement>(null)
     const galleryRef = useRef<HTMLDivElement>(null)
     const articlesRef = useRef<HTMLDivElement>(null)
     const horizontalRef = useRef<HTMLDivElement>(null)
@@ -506,7 +509,7 @@ const Home = () => {
                     <div ref={contentRef} className="smooth-content"> */}
 
 
-                <Navbar mediaRef={mediaRef} articlesRef={articlesRef} aboutRef={aboutRef} booksRef={booksRef} miniSeriesRef={seriesRef} presentationRef={presentationRef} blogRef={blogRef} upcomingBookRef={upcomingRef} />
+                <Navbar awardRef={awardRef} mediaRef={mediaRef} articlesRef={articlesRef} aboutRef={aboutRef} booksRef={booksRef} miniSeriesRef={seriesRef} presentationRef={presentationRef} blogRef={blogRef} upcomingBookRef={upcomingRef} />
 
                 {/* HERO SECTION */}
                 <HeroSection booksRef={booksRef} mediaRef={mediaRef} />
@@ -553,6 +556,7 @@ const Home = () => {
 
 
                 <Blogs blogRef={blogRef} />
+                <Awards awardRef={awardRef} />
                 <Footer />
             </div>
             {/* </div>

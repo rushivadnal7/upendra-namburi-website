@@ -249,6 +249,7 @@ export const mediaItems = [
     thumbnail: "/interviews/dummy-interview.png",
     description:
       "Discussing leadership strategies during uncertain times and market volatility.",
+    date: "2024-05-10",
   },
   {
     id: 2,
@@ -259,6 +260,7 @@ export const mediaItems = [
     thumbnail: "/interviews/dummy-interview.png",
     description:
       "Exploring emerging trends and technologies reshaping the business landscape.",
+    date: "2024-05-12",
   },
   {
     id: 3,
@@ -269,6 +271,7 @@ export const mediaItems = [
     thumbnail: "/interviews/dummy-interview.png",
     description:
       "Panel discussion on effective corporate strategies in the digital era.",
+    date: "2024-05-14",
   },
   {
     id: 4,
@@ -279,6 +282,7 @@ export const mediaItems = [
     thumbnail: "/interviews/dummy-interview.png",
     description:
       "In-depth interview about the writing process and inspiration behind the books.",
+    date: "2024-05-17",
   },
   {
     id: 5,
@@ -289,6 +293,7 @@ export const mediaItems = [
     thumbnail: "/interviews/dummy-interview.png",
     description:
       "Keynote speech on innovation and disruption in the banking sector.",
+    date: "2024-05-20",
   },
   {
     id: 6,
@@ -299,6 +304,7 @@ export const mediaItems = [
     thumbnail: "/interviews/dummy-interview.png",
     description:
       "Discussing breakthrough marketing strategies for the digital age.",
+    date: "2024-05-22",
   },
   {
     id: 7,
@@ -309,37 +315,72 @@ export const mediaItems = [
     thumbnail: "/interviews/dummy-interview.png",
     description:
       "Discussing breakthrough marketing strategies for the digital age.",
+    date: "2024-05-25",
   },
 ];
-
-
 
 export const presentationItems = [
   {
     id: 1,
     type: "video",
     title: "Leadership in Crisis",
-    url: "https://www.youtube.com/watch?v=nt9Qcifib-k",
+    url: "https://www.youtube.com/embed/nt9Qcifib-k",
+    ytLink: "https://www.youtube.com/watch?v=nt9Qcifib-k",
     thumbnail: "/presentation/dummy-presentation.png",
     description:
       "Discussing leadership strategies during uncertain times and market volatility.",
+    date: "2024-06-01",
   },
   {
     id: 2,
     type: "video",
     title: "The Future of Business",
-    url: "https://www.youtube.com/watch?v=ZxWCe2Iav8o&t=2s&pp=ygUPdXBlbmRyYSBuYW1idXJp",
+    url: "https://www.youtube.com/embed/ZxWCe2Iav8o?start=2",
+    ytLink:
+      "https://www.youtube.com/watch?v=ZxWCe2Iav8o&t=2s&pp=ygUPdXBlbmRyYSBuYW1idXJp",
     thumbnail: "/presentation/dummy-presentation.png",
     description:
       "Exploring emerging trends and technologies reshaping the business landscape.",
+    date: "2024-06-04",
   },
   {
     id: 3,
     type: "video",
     title: "Corporate Strategy Panel",
-    url: "https://www.youtube.com/watch?v=EIO6-ecFtgk&pp=ygUPdXBlbmRyYSBuYW1idXJp",
+    url: "https://www.youtube.com/embed/EIO6-ecFtgk",
+    ytLink:
+      "https://www.youtube.com/watch?v=EIO6-ecFtgk&pp=ygUPdXBlbmRyYSBuYW1idXJp",
     thumbnail: "/presentation/dummy-presentation.png",
     description:
       "Panel discussion on effective corporate strategies in the digital era.",
+    date: "2024-06-07",
+  },
+];
+
+export const awards = [
+  {
+    id: 1,
+    title: "award 1",
+    url: "/awards/award1.png",
+  },
+  {
+    id: 2,
+    title: "award 2",
+    url: "/awards/award2.png",
+  },
+  {
+    id: 3,
+    title: "award 3",
+    url: "/awards/award3.png",
+  },
+  {
+    id: 4,
+    title: "award 4",
+    url: "/awards/award4.png",
+  },
+  {
+    id: 5,
+    title: "award 5",
+    url: "/awards/award5.png",
   },
 ];

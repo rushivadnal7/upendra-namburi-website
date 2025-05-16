@@ -7,6 +7,31 @@ import { Link } from 'react-router-dom'
 
 
 const Media = ({ mediaItems, mediaRef }: any) => {
+    const containerVariants = {
+        hidden: {},
+        show: {
+            transition: {
+                staggerChildren: 0.3,
+            },
+        },
+    };
+
+    const itemVariants = {
+        hidden: {
+            opacity: 0,
+            scale: 0.8,
+            filter: "blur(10px)",
+        },
+        show: {
+            opacity: 1,
+            scale: 1,
+            filter: "blur(0px)",
+            transition: {
+                duration: 0.6,
+                ease: "easeOut",
+            },
+        },
+    };
     const [showAll, setShowAll] = useState(false);
 
     const visibleItems = showAll ? mediaItems : mediaItems.slice(0, 6);
@@ -16,29 +41,30 @@ const Media = ({ mediaItems, mediaRef }: any) => {
             <div className='w-full bg-white'>
                 <section ref={mediaRef} className="py-24 max-w-7xl mx-auto">
                     <div className="container mx-auto relative px-6">
-                        {/* <h2 className="media-heading relative section-heading text-4xl md:text-5xl font-bold mb-16 inline-block bg-gradient-to-r from-black to-black bg-[length:0%_2px] bg-no-repeat bg-bottom pb-2">
-                            Media & Interviews
-                             <motion.span
-                                className="absolute bottom-0 left-0 w-full h-[3px] bg-black"
-                                initial={{ width: 0 }}
-                                whileInView={{ width: "100%" }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 1.2, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-                            />
-                        </h2> */}
+
                         <SectionTitle text='Media & Interviews' />
 
 
-                        <div className=" flex flex-wrap justify-around gap-6 media-container">
+                        <motion.div
+                            variants={containerVariants}
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={{ once: false, amount: 0.2 }}
+                            className="flex flex-col md:flex-row flex-wrap justify-around gap-10 media-container"
+                        >
                             {visibleItems.map((item: any, index: number) => (
-                                <div
+                                <motion.div
+                                    variants={itemVariants}
                                     key={item.id}
-                                    className="media-item h-[]  group relative overflow-hidden rounded-lg shadow-lg cursor-pointer 
+                                    initial="hidden"
+                                    whileInView="show"
+                                    viewport={{ once: false, amount: 0.2 }}
+                                    className="media-item h-[300px] md:h-[350px] w-[350px]  group relative overflow-hidden rounded-lg shadow-lg cursor-pointer 
                 transition duration-500 ease-out 
                 animate-fade-slide"
                                     style={{ animationDelay: `${index * 100}ms` }}
                                 >
-                                    <div className="group h-[70%] relative aspect-video overflow-hidden">
+                                    <div className="group h-[60%] w-full relative aspect-video overflow-hidden">
                                         <iframe
                                             className="object-cover h-full z-0 transition-transform duration-500 w-full "
                                             src={item.url}
@@ -52,23 +78,23 @@ const Media = ({ mediaItems, mediaRef }: any) => {
                                         </div>
                                     </div>
 
-                                    <div className='h-max'>
-                                        <span className='p-4'>{item.title}</span>
-                                        <div className="mt-4 px-4 flex justify-between">
-
+                                    <div className='h-[40%] flex p-2 py-3 flex-col justify-between'>
+                                        <span className='text-lg  font-semibold line-clamp-2'>{item.title}</span>
+                                        <div className="mt-4   flex justify-between items-center">
+                                            <span className='w-max '>{item.date}</span>
                                             <Link
                                                 to={item.ytLink}
                                                 target="_blank"
-                                                className="inline-flex items-center gap-1 bg-white text-black px-4 py-2 rounded-full text-sm"
+                                                className="inline-flex bg-black items-center gap-1 hover:border-black hover:zoom-out-95 transition-all hover:bg-white hover:text-black   text-white px-4 py-2 rounded-full text-sm"
                                             >
                                                 Watch Now <ExternalLink size={14} />
                                             </Link>
                                         </div>
                                     </div>
 
-                                </div>
+                                </motion.div>
                             ))}
-                        </div>
+                        </motion.div>
 
                         <div className="mt-12 text-center">
                             <Button
